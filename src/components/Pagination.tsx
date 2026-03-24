@@ -23,8 +23,6 @@ export function Pagination({
   hasNextPage,
   hasPrevPage,
 }: PaginationProps) {
-  if (totalPages <= 1) return null;
-
   return (
     <div className="flex flex-col items-center justify-between gap-4 border-t border-ink/10 pt-6 sm:flex-row">
       <div className="flex items-center gap-2">
@@ -46,7 +44,8 @@ export function Pagination({
         <span className="text-sm text-ink/60">per page</span>
       </div>
 
-      <nav className="flex items-center gap-1" aria-label="Pagination">
+      {totalPages > 1 && (
+        <nav className="flex items-center gap-1" aria-label="Pagination">
         <button
           type="button"
           onClick={() => onPageChange(1)}
@@ -124,10 +123,13 @@ export function Pagination({
           </svg>
         </button>
       </nav>
+      )}
 
-      <div className="text-sm text-ink/60">
-        Page {currentPage} of {totalPages}
-      </div>
+      {totalPages > 1 && (
+        <div className="text-sm text-ink/60">
+          Page {currentPage} of {totalPages}
+        </div>
+      )}
     </div>
   );
 }
