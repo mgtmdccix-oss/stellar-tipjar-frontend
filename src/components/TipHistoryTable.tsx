@@ -101,6 +101,7 @@ export function TipHistoryTable({ tips, onSort, sortBy, sortOrder }: TipHistoryT
               </th>
               <th className="px-4 py-3 text-left text-sm font-semibold text-ink">Memo</th>
               <th className="px-4 py-3 text-left text-sm font-semibold text-ink">Transaction</th>
+              <th className="px-4 py-3 text-left text-sm font-semibold text-ink">Actions</th>
             </tr>
           </thead>
           <tbody>
