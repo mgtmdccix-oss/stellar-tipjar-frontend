@@ -18,6 +18,8 @@ import { TagBadge } from "@/components/TagBadge";
 import { TagCloud } from "@/components/TagCloud";
 import { generateTagCloud } from "@/utils/categories";
 import { PortfolioSection } from "@/components/portfolio/PortfolioSection";
+import { VerificationBadge } from "@/components/VerificationBadge";
+
 
 interface CreatorPageProps {
   params: {
@@ -75,8 +77,12 @@ export default async function CreatorPage({ params }: CreatorPageProps) {
           />
         </div>
         <p className="text-xs uppercase tracking-wide text-wave">Creator Profile</p>
-        <h1 className="mt-2 text-3xl font-bold text-ink sm:text-4xl">{profile.displayName}</h1>
+        <div className="flex items-center gap-2">
+          <h1 className="text-3xl font-bold text-ink sm:text-4xl">{profile.displayName}</h1>
+          <VerificationBadge isVerified={profile.isVerified} size="lg" />
+        </div>
         <p className="mt-1 text-sm text-ink/60">{formatUsername(profile.username)}</p>
+
         <p className="mt-4 max-w-2xl text-ink/75">{profile.bio}</p>
         <p className="mt-4 inline-flex rounded-lg bg-wave/10 px-3 py-1 text-sm text-wave">
           Preferred asset: {profile.preferredAsset}
