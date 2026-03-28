@@ -11,6 +11,7 @@ import { PageTransition } from "@/components/animations/PageTransition";
 import { WalletProvider } from "@/contexts/WalletContext";
 import { CurrencyProvider } from "@/contexts/CurrencyContext";
 import { WebSocketProvider } from "@/contexts/WebSocketContext";
+import { I18nProvider } from "@/components/I18nProvider";
 import "@/styles/globals.css";
 import { buildMetadata } from "@/utils/seo";
 
@@ -51,6 +52,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <SkipToContent />
         <PerformanceMonitor />
+        <I18nProvider>
         <CurrencyProvider>
         <WalletProvider>
           <ReactQueryProvider>
@@ -70,6 +72,7 @@ export default function RootLayout({
           </ReactQueryProvider>
         </WalletProvider>
         </CurrencyProvider>
+        </I18nProvider>
       </body>
     </html>
   );
