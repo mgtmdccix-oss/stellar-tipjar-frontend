@@ -19,6 +19,7 @@ import { TagCloud } from "@/components/TagCloud";
 import { generateTagCloud } from "@/utils/categories";
 import { PortfolioSection } from "@/components/portfolio/PortfolioSection";
 import { VerificationBadge } from "@/components/VerificationBadge";
+import { TipTiers } from "@/components/TipTiers";
 
 
 interface CreatorPageProps {
@@ -130,6 +131,8 @@ export default async function CreatorPage({ params }: CreatorPageProps) {
         <h2 className="mb-4 text-xl font-semibold text-ink">Statistics</h2>
         <CreatorStatsDashboard username={profile.username} />
       </div>
+
+      <TipTiers />
 
       <TipComments creatorUsername={profile.username} />
 
